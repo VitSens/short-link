@@ -1,8 +1,6 @@
 package com.vitsen.short_url.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "short_url")
 @Data
 @NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class Url {
 
@@ -19,8 +18,8 @@ public class Url {
     private Long id;
 
     @Column(name = "full_url")
-    private String fullUrl;
+    @NonNull private String fullUrl;
 
     @Column(name = "short_url")
-    private String shortUrl;
+    @NonNull private String shortUrl;
 }
