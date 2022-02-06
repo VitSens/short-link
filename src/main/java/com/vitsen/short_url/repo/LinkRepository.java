@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UrlRepository extends JpaRepository<Link, Long> {
+public interface LinkRepository extends JpaRepository<Link, Long> {
     Optional<List<Link>> findAllByFullUrl(String url);
 
     Optional<String> findFirstByShortUrl(String url);

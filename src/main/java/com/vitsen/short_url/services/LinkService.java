@@ -2,7 +2,7 @@ package com.vitsen.short_url.services;
 
 import com.vitsen.short_url.exceptions.NotRightLinkException;
 import com.vitsen.short_url.models.Link;
-import com.vitsen.short_url.repo.UrlRepository;
+import com.vitsen.short_url.repo.LinkRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class LinkService {
 
-    private final UrlRepository repository;
+    private final LinkRepository repository;
 
     public List<Link> findAllByLink(String link) {
         Optional<List<Link>> allLinks = repository.findAllByFullUrl(link);
