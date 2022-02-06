@@ -1,6 +1,6 @@
 package com.vitsen.short_url.exceptions.controller_advices;
 
-import com.vitsen.short_url.exceptions.NotRightUrlException;
+import com.vitsen.short_url.exceptions.NotRightLinkException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
 @EnableWebMvc
 public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(NotRightUrlException.class)
+    @ExceptionHandler(NotRightLinkException.class)
     @ResponseBody
-    public ResponseEntity<ErrorMessage> handleUrlNotRightException(NotRightUrlException ex) {
+    public ResponseEntity<ErrorMessage> handleUrlNotRightException(NotRightLinkException ex) {
         ErrorMessage errorMessage = new ErrorMessage();
         errorMessage.setStatus(HttpStatus.BAD_REQUEST.value());
         errorMessage.setMessage(ex.getMessage());

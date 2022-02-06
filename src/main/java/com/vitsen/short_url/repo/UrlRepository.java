@@ -1,18 +1,15 @@
 package com.vitsen.short_url.repo;
 
-import com.vitsen.short_url.models.Url;
+import com.vitsen.short_url.models.Link;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface UrlRepository extends JpaRepository<Url, Long> {
-    @Query("FROM Url WHERE fullUrl = :url")
-    List<Url> findAllByUrl(@Param("url") String url);
+public interface UrlRepository extends JpaRepository<Link, Long> {
+    Optional<List<Link>> findAllByFullUrl(String url);
 
-    @Query(value = "SELECT fullUrl FROM Url WHERE shortUrl = :shortUrl")
-    String findByShortUrl(@Param("shortUrl") String shortUrl);
+    Optional<String> findFirstByShortUrl(String url);
 }

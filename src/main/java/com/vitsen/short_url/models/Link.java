@@ -1,6 +1,7 @@
 package com.vitsen.short_url.models;
 
 import lombok.*;
+import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Url {
+public class Link {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,8 +19,11 @@ public class Url {
     private Long id;
 
     @Column(name = "full_url")
-    @NonNull private String fullUrl;
+    @URL
+    @NonNull
+    private String fullUrl;
 
     @Column(name = "short_url")
-    @NonNull private String shortUrl;
+    @NonNull
+    private String shortUrl;
 }
